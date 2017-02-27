@@ -13,14 +13,20 @@ class LyQueueDemoController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        let manager = LyURLSessionManager()
+        manager.post(urlString: "", heard: ["" : "" as AnyObject], success: {(dict) -> () in
+            
+        }, failure: {(error) -> () in
+            
+        })
+        
+        let task = LyNetRequstTask()
+        task.postRequest(urlString: "", headers: ["" : ""], success: {(dict) -> () in
+        }, failure: {(error) -> () in
+            
+        })
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     private func test1() {
     

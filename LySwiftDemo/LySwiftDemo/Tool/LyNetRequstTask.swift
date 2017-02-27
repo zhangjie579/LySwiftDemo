@@ -19,12 +19,12 @@ enum LyNetRequstMethod {
 class LyNetRequstTask: NSObject {
 
     //MARK: 基本网络请求
-    func postRequest(urlString : String , parameters : [String : AnyObject]? , headers : [String : String]? , success :@escaping (_ response : [String : AnyObject])->() , failure : @escaping (_ error : Error)->()) {
+    func postRequest(urlString : String , parameters : [String : AnyObject]? = nil, headers : [String : String]? = nil, success :@escaping (_ response : [String : AnyObject])->() , failure : @escaping (_ error : Error)->()) {
         
         dataRequest(method: .POST, urlString: urlString, parameters: parameters, headers: headers, success: success, failure: failure)
     }
     
-    func getRequest(urlString : String , parameters : [String : AnyObject]? , headers : [String : String]? , success :@escaping (_ response : [String : AnyObject])->() , failure : @escaping (_ error : Error)->()) {
+    func getRequest(urlString : String , parameters : [String : AnyObject]? = nil, headers : [String : String]? = nil, success :@escaping (_ response : [String : AnyObject])->() , failure : @escaping (_ error : Error)->()) {
         
         dataRequest(method: .GET, urlString: urlString, parameters: parameters, headers: headers, success: success, failure: failure)
     }
