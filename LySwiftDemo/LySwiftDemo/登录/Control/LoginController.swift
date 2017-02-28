@@ -10,12 +10,24 @@ import UIKit
 import Alamofire
 import NVActivityIndicatorView
 import SwiftyJSON
+import ReactiveCocoa
+import ReactiveSwift
+import Result
 
 class LoginController: UIViewController {
 
     override func viewDidLoad() {
         initView()
         
+        let phoneSignal = phoneNum.textFiled.reactive.continuousTextValues.map { (text) -> Int in
+            return (text?.characters.count)!
+        }
+        let passwordSignal = secNum.textFiled.reactive.continuousTextValues.map { (text) -> Int in
+            return (text?.characters.count)!
+        }
+        sureBtn.reactive.isEnabled <~ Signal.combineLatest(phoneSignal, passwordSignal).map({ (namelength : Int, passlength : Int) -> Bool in
+            return (namelength >= 1 && passlength >= 1) ? true : false
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,6 +45,7 @@ class LoginController: UIViewController {
         view.addSubview(phoneNum)
         view.addSubview(secNum)
         view.addSubview(sureBtn)
+        view.addSubview(btnRAC)
         setSnp()
 
     }
@@ -104,6 +117,9 @@ class LoginController: UIViewController {
 //        }
 //    }
     
+    @objc private func recTo() {
+        navigationController?.pushViewController(MyHelpViewController(), animated: true)
+    }
     
     private func setSnp() {
         
@@ -132,6 +148,12 @@ class LoginController: UIViewController {
             make.left.equalTo(self.view).offset(10)
             make.right.equalTo(self.view).offset(-10)
             make.height.equalTo(50)
+        }
+        
+        btnRAC.snp.makeConstraints { (make) in
+            make.top.equalTo(sureBtn.snp.bottom).offset(20)
+            make.left.equalTo(self.view).offset(10)
+            make.size.equalTo(CGSize(width: 150, height: 50))
         }
     }
     
@@ -174,32 +196,52 @@ class LoginController: UIViewController {
         sureBtn.clipsToBounds = true
         return sureBtn
     }()
+    
+    lazy var btnRAC : UIButton = {
+        
+        let sureBtn = UIButton()
+        sureBtn.setBackgroundImage(LyClassTool.creatImageWithColor(color: UIColor.green), for: .normal)
+        sureBtn.setTitle("RAC + MVVM", for: UIControlState.normal)
+        sureBtn.setTitleColor(UIColor.white, for: UIControlState.normal)
+        sureBtn.addTarget(self, action: #selector(recTo), for: UIControlEvents.touchUpInside)
+        sureBtn.layer.cornerRadius = 5
+        sureBtn.clipsToBounds = true
+        return sureBtn
+    }()
 }
 
 extension LoginController : UINavigationControllerDelegate {
     
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+//    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+//        if viewController == self {
+//            navigationController.navigationBar.isHidden = true
+//        } else {
+//            navigationController.navigationBar.isHidden = false
+//        }
+//    }
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if viewController == self {
-            navigationController.navigationBar.isHidden = true
+            navigationController.isNavigationBarHidden = true
         } else {
-            navigationController.navigationBar.isHidden = false
+            navigationController.isNavigationBarHidden = false
         }
     }
 }
 
 extension LoginController : UITextFieldDelegate {
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        if (LyClassTool.isBlackString(string: phoneNum.textFiled.text) && LyClassTool.isBlackString(string: secNum.textFiled.text)){
-            
-            sureBtn.isEnabled = false
-        } else {
-            sureBtn.isEnabled = true
-        }
-        
-        return true
-    }
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        
+//        if (LyClassTool.isBlackString(string: phoneNum.textFiled.text) && LyClassTool.isBlackString(string: secNum.textFiled.text)){
+//            
+//            sureBtn.isEnabled = false
+//        } else {
+//            sureBtn.isEnabled = true
+//        }
+//        
+//        return true
+//    }
     
     //点击了return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

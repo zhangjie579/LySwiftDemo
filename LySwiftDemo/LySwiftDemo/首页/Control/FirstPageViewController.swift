@@ -136,6 +136,7 @@ class FirstPageViewController: UIViewController {
         let heardView = LyPhotoPlayView()
         heardView.backgroundColor = self.define.ColorWhite
         heardView.frame = CGRect(x: 0, y: 0, width: self.define.screenW, height:150)
+        heardView.delegate = self
         return heardView
     }()
     
@@ -145,6 +146,12 @@ class FirstPageViewController: UIViewController {
     
     lazy var array_phone : [LyPhotoModel] = [LyPhotoModel]()
     
+}
+
+extension FirstPageViewController : LyPhotoPlayViewDelegate {
+    func lyPhotoPlayViewDidImageWithRow(row: Int) {
+        navigationController?.pushViewController(MyMainViewController(), animated: true)
+    }
 }
 
 extension FirstPageViewController : UITableViewDelegate, UITableViewDataSource {

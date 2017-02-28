@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol LyPhotoPlayViewDelegate : NSObjectProtocol {
+    func lyPhotoPlayViewDidImageWithRow(row : Int)
+}
+
 class LyPhotoPlayView: UIView {
 
     override init(frame: CGRect) {
@@ -19,6 +23,8 @@ class LyPhotoPlayView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    weak var delegate : LyPhotoPlayViewDelegate?
     
     var array_icon : Array<String>? {
         didSet {
@@ -128,7 +134,9 @@ extension LyPhotoPlayView : UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        if delegate != nil {
+            delegate?.lyPhotoPlayViewDidImageWithRow(row: indexPath.row)
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

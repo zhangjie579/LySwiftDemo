@@ -15,4 +15,5 @@ pod 'Kingfisher'
 pod 'SwiftyJSON'
 #提示框
 pod 'NVActivityIndicatorView'
+pod 'ReactiveCocoa'
 end

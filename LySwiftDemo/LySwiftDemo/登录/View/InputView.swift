@@ -111,6 +111,7 @@ class InputView: UIView {
         textFiled.textColor = UIColor.lightGray
         textFiled.clearButtonMode = .always
         textFiled.returnKeyType = .done
+        textFiled.enablesReturnKeyAutomatically = true
         return textFiled
     }()
 }

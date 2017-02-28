@@ -18,6 +18,14 @@
 		2F11A1011E5ED5B8009F2387 /* DetailCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F11A1001E5ED5B8009F2387 /* DetailCommentCell.swift */; };
 		2F11A1031E5EDA7D009F2387 /* DetailCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F11A1021E5EDA7D009F2387 /* DetailCommentModel.swift */; };
 		2F11A1051E5EE9E7009F2387 /* DetailCommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F11A1041E5EE9E7009F2387 /* DetailCommentController.swift */; };
+		2F20963E1E65196A00592C7E /* MyHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F20963D1E65196A00592C7E /* MyHelpViewController.swift */; };
+		2F2096401E6519A400592C7E /* MyHelpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F20963F1E6519A400592C7E /* MyHelpModel.swift */; };
+		2F2096421E6519B000592C7E /* MyHelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2096411E6519B000592C7E /* MyHelpViewModel.swift */; };
+		2F2096441E6519C000592C7E /* MyHelpDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2096431E6519C000592C7E /* MyHelpDataSource.swift */; };
+		2F2096461E6519D100592C7E /* MyHelpFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2096451E6519D100592C7E /* MyHelpFootView.swift */; };
+		2F2096481E6519E600592C7E /* MyHelpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2096471E6519E600592C7E /* MyHelpCell.swift */; };
+		2F20C0FF1E640F3C001103AF /* MyMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F20C0FE1E640F3C001103AF /* MyMainViewController.swift */; };
+		2F5426CD1E645A2C00C30951 /* MyMainFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5426CC1E645A2C00C30951 /* MyMainFootView.swift */; };
 		2F7607281E614165001C72BF /* LyURLSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7607271E614165001C72BF /* LyURLSessionManager.swift */; };
 		2F9C50381E5D5C7F00F20D08 /* LoginInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C50371E5D5C7F00F20D08 /* LoginInModel.swift */; };
 		2F9C50411E5D666A00F20D08 /* LyUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C50401E5D666A00F20D08 /* LyUserDefault.swift */; };
@@ -71,6 +79,14 @@
 		2F11A1001E5ED5B8009F2387 /* DetailCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCommentCell.swift; sourceTree = "<group>"; };
 		2F11A1021E5EDA7D009F2387 /* DetailCommentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCommentModel.swift; sourceTree = "<group>"; };
 		2F11A1041E5EE9E7009F2387 /* DetailCommentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCommentController.swift; sourceTree = "<group>"; };
+		2F20963D1E65196A00592C7E /* MyHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHelpViewController.swift; sourceTree = "<group>"; };
+		2F20963F1E6519A400592C7E /* MyHelpModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHelpModel.swift; sourceTree = "<group>"; };
+		2F2096411E6519B000592C7E /* MyHelpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHelpViewModel.swift; sourceTree = "<group>"; };
+		2F2096431E6519C000592C7E /* MyHelpDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHelpDataSource.swift; sourceTree = "<group>"; };
+		2F2096451E6519D100592C7E /* MyHelpFootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHelpFootView.swift; sourceTree = "<group>"; };
+		2F2096471E6519E600592C7E /* MyHelpCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHelpCell.swift; sourceTree = "<group>"; };
+		2F20C0FE1E640F3C001103AF /* MyMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMainViewController.swift; sourceTree = "<group>"; };
+		2F5426CC1E645A2C00C30951 /* MyMainFootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyMainFootView.swift; path = ../Control/MyMainFootView.swift; sourceTree = "<group>"; };
 		2F7607271E614165001C72BF /* LyURLSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LyURLSessionManager.swift; sourceTree = "<group>"; };
 		2F9C50371E5D5C7F00F20D08 /* LoginInModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInModel.swift; sourceTree = "<group>"; };
 		2F9C50401E5D666A00F20D08 /* LyUserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LyUserDefault.swift; sourceTree = "<group>"; };
@@ -167,7 +183,7 @@
 				2FAD68481E5C291000084385 /* Tool */,
 				2FAD68361E5C28D700084385 /* 登录 */,
 				2FAD683C1E5C28D700084385 /* 首页 */,
-				2FAD68421E5C28D700084385 /* 我的 */,
+				2FAD68421E5C28D700084385 /* 我的MVVM+RAC */,
 				2FAD68081E5C26F400084385 /* AppDelegate.swift */,
 				2FAD680A1E5C26F400084385 /* ViewController.swift */,
 				2FAD680C1E5C26F400084385 /* Main.storyboard */,
@@ -305,7 +321,7 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		2FAD68421E5C28D700084385 /* 我的 */ = {
+		2FAD68421E5C28D700084385 /* 我的MVVM+RAC */ = {
 			isa = PBXGroup;
 			children = (
 				2FAD68431E5C28D700084385 /* Control */,
@@ -314,12 +330,15 @@
 				2FAD68461E5C28D700084385 /* View */,
 				2FAD68471E5C28D700084385 /* ViewModel */,
 			);
+			name = "我的MVVM+RAC";
 			path = "我的";
 			sourceTree = "<group>";
 		};
 		2FAD68431E5C28D700084385 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				2F20C0FE1E640F3C001103AF /* MyMainViewController.swift */,
+				2F20963D1E65196A00592C7E /* MyHelpViewController.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -327,6 +346,7 @@
 		2FAD68441E5C28D700084385 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				2F2096431E6519C000592C7E /* MyHelpDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -334,6 +354,7 @@
 		2FAD68451E5C28D700084385 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2F20963F1E6519A400592C7E /* MyHelpModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -341,6 +362,9 @@
 		2FAD68461E5C28D700084385 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2F5426CC1E645A2C00C30951 /* MyMainFootView.swift */,
+				2F2096451E6519D100592C7E /* MyHelpFootView.swift */,
+				2F2096471E6519E600592C7E /* MyHelpCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -348,6 +372,7 @@
 		2FAD68471E5C28D700084385 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2F2096411E6519B000592C7E /* MyHelpViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -627,17 +652,25 @@
 				2F11A0FD1E5EC8F3009F2387 /* DetailViewModel.swift in Sources */,
 				2F11A0F31E5EAD47009F2387 /* LyPhotoPlayView.swift in Sources */,
 				2F11A1051E5EE9E7009F2387 /* DetailCommentController.swift in Sources */,
+				2F20963E1E65196A00592C7E /* MyHelpViewController.swift in Sources */,
 				2F11A0FF1E5ED192009F2387 /* DetailHeaderView.swift in Sources */,
 				2F9C50381E5D5C7F00F20D08 /* LoginInModel.swift in Sources */,
 				2F11A0FB1E5EC778009F2387 /* DetailTitleView.swift in Sources */,
 				2FFD5D2D1E5FCC4C00F75427 /* LyTextView.swift in Sources */,
+				2F2096481E6519E600592C7E /* MyHelpCell.swift in Sources */,
+				2F2096401E6519A400592C7E /* MyHelpModel.swift in Sources */,
+				2F2096441E6519C000592C7E /* MyHelpDataSource.swift in Sources */,
 				2FFD5D321E60124F00F75427 /* LyQueueDemoController.swift in Sources */,
+				2F2096421E6519B000592C7E /* MyHelpViewModel.swift in Sources */,
 				2FAD68501E5C29B500084385 /* InputView.swift in Sources */,
 				2F11A1011E5ED5B8009F2387 /* DetailCommentCell.swift in Sources */,
 				2FAD684E1E5C293800084385 /* LoginController.swift in Sources */,
+				2F5426CD1E645A2C00C30951 /* MyMainFootView.swift in Sources */,
 				2F11A0F11E5E9591009F2387 /* LyPhotoFlowLayout.swift in Sources */,
 				2FAD68561E5C2BF700084385 /* LyClassTool.swift in Sources */,
 				2F7607281E614165001C72BF /* LyURLSessionManager.swift in Sources */,
+				2F2096461E6519D100592C7E /* MyHelpFootView.swift in Sources */,
+				2F20C0FF1E640F3C001103AF /* MyMainViewController.swift in Sources */,
 				2F9C50471E5D6AC600F20D08 /* FirstPageCell.swift in Sources */,
 				2F9C50451E5D6AB800F20D08 /* FirstPageModel.swift in Sources */,
 				2FFD5D271E5FC58400F75427 /* LyNetRequstTask.swift in Sources */,
