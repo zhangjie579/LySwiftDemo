@@ -180,7 +180,6 @@
 		2FAD68071E5C26F400084385 /* LySwiftDemo */ = {
 			isa = PBXGroup;
 			children = (
-				2FBF6BC61E666AFD0048A3FE /* OC-RAC */,
 				2FFD5D2E1E6011FE00F75427 /* 多线程demo */,
 				2FAD68511E5C2AA900084385 /* Base */,
 				2FAD68481E5C291000084385 /* Tool */,
@@ -441,13 +440,6 @@
 			name = tool;
 			sourceTree = "<group>";
 		};
-		2FBF6BC61E666AFD0048A3FE /* OC-RAC */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "OC-RAC";
-			sourceTree = "<group>";
-		};
 		2FFD5D2E1E6011FE00F75427 /* 多线程demo */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,6 +536,7 @@
 				TargetAttributes = {
 					2FAD68041E5C26F400084385 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					2FAD68181E5C26F400084385 = {
@@ -845,10 +838,13 @@
 			baseConfigurationReference = 1ED2C85D6DB0C19F02FE15CD /* Pods-LySwiftDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = LySwiftDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bona.LySwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -858,10 +854,12 @@
 			baseConfigurationReference = ED6C1537678653B22A8C696A /* Pods-LySwiftDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = LySwiftDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bona.LySwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

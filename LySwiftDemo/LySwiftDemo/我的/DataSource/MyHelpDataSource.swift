@@ -15,25 +15,29 @@ class MyHelpDataSource: NSObject {
 
     //获取数据的信号
     let (dataSourceSignal , observeData) = Signal<Any, NoError>.pipe()
-    
-    var arrayModel = [MyHelpViewModel]()
+    let (signalWithTap , observeTap) = Signal<Any, NoError>.pipe()
     
     override init() {
         super.init()
         
         getData()
+        
+        signalWithTap.observeValues { (value) in
+            print("请求服务器")
+        }
     }
     
     private func getData() {
         LyClassTool.loadingAnimation()
         manager.postRequest(urlString: "http://182.254.228.211:9000/index.php/Api/ServiceContact/index", parameters: ["uid" : "1" as AnyObject], success: {[weak self] (dict : [String : AnyObject]) -> () in
-            
-            LyClassTool.stopAnimation()
+    
             let status = dict["status"] as! NSNumber
             let data = dict["data"] as? [String : AnyObject]
             if status == 0 && data != nil {
-                let model = MyHelpModel(dict: data! as! [String : String])
                 
+                LyClassTool.stopAnimation()
+                
+                let model = MyHelpModel(dict: data! as! [String : String])
                 
                 if model.qq != nil
                 {
@@ -59,12 +63,19 @@ class MyHelpDataSource: NSObject {
                     self?.arrayModel.append(viewModel)
                 }
                 
-                self?.observeData.send(value: "")
-                self?.observeData.sendCompleted()
+                self?.observeData.send(value: self?.arrayModel ?? [MyHelpViewModel]())
             }
+            else
+            {
+                LyClassTool.stopLoadingAnimation(string: dict["info"] as! String)
+                self?.observeData.send(value: dict["info"] ?? String())
+            }
+//            self?.observeData.sendCompleted()
             
-        }, failure: {(error : Error) -> () in
+        }, failure: {[weak self](error : Error) -> () in
             LyClassTool.stopAnimation()
+            self?.observeData.send(error: error as! NoError)
+            self?.observeData.sendCompleted()
         })
     }
     
@@ -72,4 +83,6 @@ class MyHelpDataSource: NSObject {
         let manager = LyNetRequstTask()
         return manager
     }()
+    
+    private var arrayModel = [MyHelpViewModel]()
 }

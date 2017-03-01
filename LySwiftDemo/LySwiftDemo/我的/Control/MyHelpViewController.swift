@@ -29,22 +29,52 @@ class MyHelpViewController: UIViewController {
         view.addSubview(footView)
         
         //tap底部的view
-        footView.signalTap.observe { (value) in
+        footView.signalTap.observe { [weak self](value) in
             print("点击了底部的view")
+            
+            //告诉dataSource点击了按钮，需要请求服务器
+            self?.dataSource.observeTap.send(value: "")
         }
     }
     
     private func initData() {
         
-        //得到数据发送来的信号
+        //通过RAC订阅信号，得到数据，不使用dataSource中的数据源，那样会耦合性高
         dataSource.dataSourceSignal.observeValues { [weak self](value) in
-            self?.tableView.reloadData()
             
-            //底部的view
-            self?.footView.title = self?.dataSource.arrayModel[0].time!
-            let h = MyHelpFootView.getHeight(title: (self?.dataSource.arrayModel[0].time!)!)
-            self?.footView.frame = CGRect(x: 0, y: (self?.define.screenH)! -  CGFloat((self?.define.NavBarHeight)!) - h, width: (self?.define.screenW)!, height: h)
+            let key = value as? [MyHelpViewModel]
+            if key != nil {
+                self?.arrayViewModel = key!
+                
+                self?.tableView.reloadData()
+                
+                //底部的view
+                self?.footView.title = self?.arrayViewModel[0].time!
+                let h = MyHelpFootView.getHeight(title: (self?.arrayViewModel[0].time!)!)
+                self?.footView.frame = CGRect(x: 0, y: (self?.define.screenH)! -  CGFloat((self?.define.NavBarHeight)!) - h, width: (self?.define.screenW)!, height: h)
+            }
+            else
+            {
+                print(value)
+            }
         }
+//        dataSource.dataSourceSignal.observe { [weak self](event) in
+//            
+//            if let error = event.error {
+//                print(error)
+//            }
+//            else if let value = event.value {
+//                
+//                self?.arrayViewModel = value as! [MyHelpViewModel]
+//                
+//                self?.tableView.reloadData()
+//                
+//                //底部的view
+//                self?.footView.title = self?.arrayViewModel[0].time!
+//                let h = MyHelpFootView.getHeight(title: (self?.arrayViewModel[0].time!)!)
+//                self?.footView.frame = CGRect(x: 0, y: (self?.define.screenH)! -  CGFloat((self?.define.NavBarHeight)!) - h, width: (self?.define.screenW)!, height: h)
+//            }
+//        }
     }
     
     lazy var dataSource : MyHelpDataSource = {
@@ -69,6 +99,8 @@ class MyHelpViewController: UIViewController {
     }()
     
     private let define = LyUserDefault()
+    
+    var arrayViewModel = [MyHelpViewModel]()
 }
 
 extension MyHelpViewController : UITableViewDelegate , UITableViewDataSource {
@@ -78,12 +110,12 @@ extension MyHelpViewController : UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.arrayModel.count
+        return arrayViewModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = MyHelpCell.cellWithTableView(tableView)
-        cell.viewModel = dataSource.arrayModel[indexPath.row]
+        cell.viewModel = arrayViewModel[indexPath.row]
         return cell
     }
     

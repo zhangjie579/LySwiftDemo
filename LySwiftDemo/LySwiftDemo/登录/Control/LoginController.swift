@@ -28,6 +28,11 @@ class LoginController: UIViewController {
         sureBtn.reactive.isEnabled <~ Signal.combineLatest(phoneSignal, passwordSignal).map({ (namelength : Int, passlength : Int) -> Bool in
             return (namelength >= 1 && passlength >= 1) ? true : false
         })
+        
+        //去oc页面
+        btnOCRAC.reactive.controlEvents(UIControlEvents.touchUpInside).observeResult({ (btn) in
+            
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +51,7 @@ class LoginController: UIViewController {
         view.addSubview(secNum)
         view.addSubview(sureBtn)
         view.addSubview(btnRAC)
+        view.addSubview(btnOCRAC)
         setSnp()
 
     }
@@ -155,6 +161,12 @@ class LoginController: UIViewController {
             make.left.equalTo(self.view).offset(10)
             make.size.equalTo(CGSize(width: 150, height: 50))
         }
+        
+        btnOCRAC.snp.makeConstraints { (make) in
+            make.top.equalTo(sureBtn.snp.bottom).offset(20)
+            make.right.equalTo(sureBtn)
+            make.size.equalTo(CGSize(width: 150, height: 50))
+        }
     }
     
     private lazy var titleLabel : UILabel = {
@@ -204,6 +216,18 @@ class LoginController: UIViewController {
         sureBtn.setTitle("RAC + MVVM", for: UIControlState.normal)
         sureBtn.setTitleColor(UIColor.white, for: UIControlState.normal)
         sureBtn.addTarget(self, action: #selector(recTo), for: UIControlEvents.touchUpInside)
+        sureBtn.layer.cornerRadius = 5
+        sureBtn.clipsToBounds = true
+        return sureBtn
+    }()
+    
+    lazy var btnOCRAC : UIButton = {
+        
+        let sureBtn = UIButton()
+        sureBtn.setBackgroundImage(LyClassTool.creatImageWithColor(color: UIColor.green), for: .normal)
+        sureBtn.setTitle("RAC + OC", for: UIControlState.normal)
+        sureBtn.setTitleColor(UIColor.white, for: UIControlState.normal)
+//        sureBtn.addTarget(self, action: #selector(recToOC), for: UIControlEvents.touchUpInside)
         sureBtn.layer.cornerRadius = 5
         sureBtn.clipsToBounds = true
         return sureBtn
