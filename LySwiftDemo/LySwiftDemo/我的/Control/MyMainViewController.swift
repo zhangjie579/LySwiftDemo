@@ -31,9 +31,48 @@ class MyMainViewController: UIViewController {
         footDelegate()
     }
     
+    // MARK: - 0.创建信号的方法
+    func createSignalMehods() {
+        // 1.通过信号发生器创建(冷信号)
+        let producer = SignalProducer<String, NoError>.init { (observer, _) in
+            print("新的订阅，启动操作")
+            observer.send(value: "Hello")
+            observer.send(value: "World")
+        }
+        
+        let subscriber1 = Observer<String, NoError>(value: { print("观察者1接收到值 \($0)") })
+        let subscriber2 = Observer<String, NoError>(value: { print("观察者2接收到值 \($0)") })
+        
+        print("观察者1订阅信号发生器")
+        producer.start(subscriber1)
+        print("观察者2订阅信号发生器")
+        producer.start(subscriber2)
+        //注意：发生器将再次启动工作
+        
+        // 2.通过管道创建（热信号）
+        let (signalA, observerA) = Signal<String, NoError>.pipe()
+        let (signalB, observerB) = Signal<String, NoError>.pipe()
+        Signal.combineLatest(signalA, signalB).observeValues { (value) in
+            print( "收到的值\(value.0) + \(value.1)")
+        }
+        observerA.send(value: "1")
+        //注意:如果加这个就是，发了一次信号就不能再发了
+        observerA.sendCompleted()
+        observerB.send(value: "2")
+        observerB.sendCompleted()
+        
+        
+        //3.创建空信号
+        let emptySignal = Signal<Any, NoError>.empty
+        emptySignal.observe { (value) in
+            
+        }
+    }
+    
     //MARK: delegate
     private func footDelegate() {
     
+        //订阅信号
         footView.sing1.observeValues { (value) in
             print("按钮点击\(value)")
         }
@@ -69,37 +108,6 @@ class MyMainViewController: UIViewController {
         btn.reactive.controlEvents(.touchUpInside).observeValues { (btn) in
             print("点击了按钮,颜色\(btn.tag)")
         }
-    }
-    
-    // MARK: - 0.创建信号的方法
-    func createSignalMehods() {
-        // 1.通过信号发生器创建(冷信号)
-        let producer = SignalProducer<String, NoError>.init { (observer, _) in
-            print("新的订阅，启动操作")
-            observer.send(value: "Hello")
-            observer.send(value: "World")
-        }
-        
-        let subscriber1 = Observer<String, NoError>(value: { print("观察者1接收到值 \($0)") })
-        let subscriber2 = Observer<String, NoError>(value: { print("观察者2接收到值 \($0)") })
-        
-        print("观察者1订阅信号发生器")
-        producer.start(subscriber1)
-        print("观察者2订阅信号发生器")
-        producer.start(subscriber2)
-        //注意：发生器将再次启动工作
-        
-        // 2.通过管道创建（热信号）
-        let (signalA, observerA) = Signal<String, NoError>.pipe()
-        let (signalB, observerB) = Signal<String, NoError>.pipe()
-        Signal.combineLatest(signalA, signalB).observeValues { (value) in
-            print( "收到的值\(value.0) + \(value.1)")
-        }
-        observerA.send(value: "1")
-        //注意:如果加这个就是，发了一次信号就不能再发了
-        observerA.sendCompleted()
-        observerB.send(value: "2")
-        observerB.sendCompleted()
     }
     
     // MARK: - 5.信号联合

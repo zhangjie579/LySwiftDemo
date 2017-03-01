@@ -20,6 +20,7 @@ class MyHelpFootView: UIView {
         backgroundColor = UIColor.white
         addSubview(label)
 
+        
         isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapClick))
         addGestureRecognizer(tap)
@@ -33,7 +34,6 @@ class MyHelpFootView: UIView {
     
     @objc private func tapClick() {
         observeTap.send(value: "")
-        
         //如果加这个就是，发了一次信号就不能再发了
 //        observeTap.sendCompleted()
     }

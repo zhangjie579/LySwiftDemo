@@ -24,6 +24,7 @@
 		2F2096441E6519C000592C7E /* MyHelpDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2096431E6519C000592C7E /* MyHelpDataSource.swift */; };
 		2F2096461E6519D100592C7E /* MyHelpFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2096451E6519D100592C7E /* MyHelpFootView.swift */; };
 		2F2096481E6519E600592C7E /* MyHelpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2096471E6519E600592C7E /* MyHelpCell.swift */; };
+		2F2096581E657F7F00592C7E /* MVVMRACDemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2096571E657F7F00592C7E /* MVVMRACDemoController.swift */; };
 		2F20C0FF1E640F3C001103AF /* MyMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F20C0FE1E640F3C001103AF /* MyMainViewController.swift */; };
 		2F5426CD1E645A2C00C30951 /* MyMainFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5426CC1E645A2C00C30951 /* MyMainFootView.swift */; };
 		2F7607281E614165001C72BF /* LyURLSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7607271E614165001C72BF /* LyURLSessionManager.swift */; };
@@ -85,6 +86,7 @@
 		2F2096431E6519C000592C7E /* MyHelpDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHelpDataSource.swift; sourceTree = "<group>"; };
 		2F2096451E6519D100592C7E /* MyHelpFootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHelpFootView.swift; sourceTree = "<group>"; };
 		2F2096471E6519E600592C7E /* MyHelpCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHelpCell.swift; sourceTree = "<group>"; };
+		2F2096571E657F7F00592C7E /* MVVMRACDemoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVVMRACDemoController.swift; sourceTree = "<group>"; };
 		2F20C0FE1E640F3C001103AF /* MyMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMainViewController.swift; sourceTree = "<group>"; };
 		2F5426CC1E645A2C00C30951 /* MyMainFootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyMainFootView.swift; path = ../Control/MyMainFootView.swift; sourceTree = "<group>"; };
 		2F7607271E614165001C72BF /* LyURLSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LyURLSessionManager.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		2FAD68071E5C26F400084385 /* LySwiftDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2FBF6BC61E666AFD0048A3FE /* OC-RAC */,
 				2FFD5D2E1E6011FE00F75427 /* 多线程demo */,
 				2FAD68511E5C2AA900084385 /* Base */,
 				2FAD68481E5C291000084385 /* Tool */,
@@ -339,6 +342,7 @@
 			children = (
 				2F20C0FE1E640F3C001103AF /* MyMainViewController.swift */,
 				2F20963D1E65196A00592C7E /* MyHelpViewController.swift */,
+				2F2096571E657F7F00592C7E /* MVVMRACDemoController.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -435,6 +439,13 @@
 				2F7607271E614165001C72BF /* LyURLSessionManager.swift */,
 			);
 			name = tool;
+			sourceTree = "<group>";
+		};
+		2FBF6BC61E666AFD0048A3FE /* OC-RAC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "OC-RAC";
 			sourceTree = "<group>";
 		};
 		2FFD5D2E1E6011FE00F75427 /* 多线程demo */ = {
@@ -666,6 +677,7 @@
 				2F11A1011E5ED5B8009F2387 /* DetailCommentCell.swift in Sources */,
 				2FAD684E1E5C293800084385 /* LoginController.swift in Sources */,
 				2F5426CD1E645A2C00C30951 /* MyMainFootView.swift in Sources */,
+				2F2096581E657F7F00592C7E /* MVVMRACDemoController.swift in Sources */,
 				2F11A0F11E5E9591009F2387 /* LyPhotoFlowLayout.swift in Sources */,
 				2FAD68561E5C2BF700084385 /* LyClassTool.swift in Sources */,
 				2F7607281E614165001C72BF /* LyURLSessionManager.swift in Sources */,
