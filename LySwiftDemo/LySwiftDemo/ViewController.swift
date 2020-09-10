@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         print("dev - 1")
+        print("dev - 2")
         
     }
 
